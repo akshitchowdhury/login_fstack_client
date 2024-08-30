@@ -48,13 +48,13 @@ const Posts = () => {
                                 className='text-sm text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg'>
                                 Delete Card
                             </button>
-                            <Dialog>
+                            {/* <Dialog>
                                 <>
                                     <p className="text-gray-600 mt-4">First Name: {user.firstName}</p>
                                     <p className="text-gray-600">Last Name: {user.lastName}</p>
                                     <p className="text-gray-600">Password: {user.password}</p>
                                 </>
-                            </Dialog>
+                            </Dialog> */}
                         </div>
                     </Card>
                 ))}
