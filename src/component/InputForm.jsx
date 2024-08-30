@@ -20,7 +20,7 @@ const InputForm = () => {
         formData.append('password', password);
         formData.append('image', image);
 
-        const submitData = await fetch('http://localhost:3030/login', {
+        const submitData = await fetch('https://login-fstack-server.vercel.app/login', {
           method: 'POST',
           body: formData, 
         });

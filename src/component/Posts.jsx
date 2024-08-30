@@ -7,7 +7,7 @@ const Posts = () => {
 
     const handleDelete = async (id) => {
         try {
-            const delCard = await fetch(`http://localhost:3030/delete/${id}`, { method: "DELETE" })
+            const delCard = await fetch(`https://login-fstack-server.vercel.app/delete/${id}`, { method: "DELETE" })
             const delRes = await delCard.json()
             alert("Card deleted successfully")
             window.location.reload()
@@ -17,7 +17,7 @@ const Posts = () => {
     }
 
     const userLists = async function() {
-        const data = await fetch("http://localhost:3030/", { method: "GET" })
+        const data = await fetch("https://login-fstack-server.vercel.app/", { method: "GET" })
         const dataFlow = await data.json()
         setPosts(dataFlow)
     }
