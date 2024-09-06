@@ -4,12 +4,14 @@ import { useParams, useNavigate } from 'react-router-dom'
 const Update = () => {
     const { id } = useParams()  // Get the user ID from the URL
     const navigate = useNavigate()
+    
     const [user, setUser] = useState({
         username: '',
         firstName: '',
         lastName: '',
         password: '',
-        imageUrl: ''
+        imageUrl: '',
+        isFavorite: false  // initialize as false
     })
     const [image, setImage] = useState(null)
 
@@ -31,6 +33,10 @@ const Update = () => {
         setImage(e.target.files[0])
     }
 
+    const handleFavoriteChange = (e) => {
+        setUser({ ...user, isFavorite: e.target.checked })  // handle checkbox
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -39,6 +45,7 @@ const Update = () => {
         formData.append('firstName', user.firstName)
         formData.append('lastName', user.lastName)
         formData.append('password', user.password)
+        formData.append('isFavorite', user.isFavorite)
 
         if (image) {
             formData.append('image', image)  // Add new image if selected
@@ -52,9 +59,10 @@ const Update = () => {
 
             if (response.ok) {
                 alert('User updated successfully')
-                window.location.reload()
+                navigate('/')
             } else {
                 alert('Failed to update user')
+                console.log(response)
             }
         } catch (error) {
             alert(`Update failed: ${error}`)
@@ -120,6 +128,18 @@ const Update = () => {
                     {user.imageUrl && (
                         <img src={user.imageUrl} alt="Profile" className="w-24 h-24 rounded-full mt-4" />
                     )}
+                </div>
+
+                <div className='mb-4'>
+                    <label className='block text-gray-700 mb-2'>Save as Favorite</label>
+                    <input
+                        type='checkbox'
+                        name='isFavorite'
+                        checked={user.isFavorite}  // use checked instead of value
+                        onChange={handleFavoriteChange}
+                        className='mr-2'
+                    />
+                    <span>{user.isFavorite ? 'Favorite' : 'Not Favorite'}</span>
                 </div>
 
                 <button

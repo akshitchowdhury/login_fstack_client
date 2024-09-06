@@ -6,6 +6,7 @@ const InputForm = () => {
   const [lastName, setLastName] = useState('');
   const [password, setPassword] = useState('');
   const [image, setImage] = useState(null);
+  const[isFavorite, setIsFavorite] = useState(false);
 
   const handleSubmission = (e) => {
     e.preventDefault();
@@ -19,6 +20,7 @@ const InputForm = () => {
         formData.append('lastName', lastName);
         formData.append('password', password);
         formData.append('image', image);
+        formData.append('isFavorite', isFavorite);
 
         const submitData = await fetch('https://login-fstack-server.vercel.app/login', {
           method: 'POST',
@@ -86,6 +88,15 @@ const InputForm = () => {
             className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
             required
           />
+        </div>
+
+        <div>
+          <input
+            type="checkbox"
+            checked={isFavorite}
+            onChange={() => setIsFavorite(!isFavorite)}
+          />
+          <label className="ml-2">Favorite</label>
         </div>
 
         <div className="flex justify-center">
