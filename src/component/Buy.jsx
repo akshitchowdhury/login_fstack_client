@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaDollarSign } from 'react-icons/fa';
 
-const Buy = ({ amount }) => {
+const Buy = ({ amount, currency }) => {
     const [displayRazorpay, setDisplayRazorpay] = useState(false);
     const [orderDetails, setOrderDetails] = useState({
         orderId: null,
@@ -97,7 +97,7 @@ const Buy = ({ amount }) => {
     // Verify the payment by sending the payment details to the server
     const verifyPayment = async (paymentData) => {
         try {
-            const response = await fetch('https://your-backend-url.com/verify', {
+            const response = await fetch('https://login-fstack-server.vercel.app/verify', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
