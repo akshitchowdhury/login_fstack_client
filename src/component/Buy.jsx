@@ -115,7 +115,7 @@ const Buy = ({ amount, currency }) => {
     return (
         <div>
             <button
-                onClick={() => handleCreateOrder(amount, 'USD')}
+                onClick={() => handleCreateOrder(amount, currency)}
                 className="text-white bg-green-600 px-4 py-2 rounded-md hover:bg-green-700">
                 <FaDollarSign className="inline-block mr-2" />
                 Buy Now

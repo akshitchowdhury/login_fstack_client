@@ -125,6 +125,7 @@ const Update = () => {
                     <input
             type="text"
             name="currency"
+            value={user.currency}
             onChange={handleInputChange}
             className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
             
@@ -135,6 +136,7 @@ const Update = () => {
                     <input
             type="number"
             name="amount"
+            value={user.amount}
             onChange={handleInputChange}
             className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
             
