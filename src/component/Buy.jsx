@@ -28,7 +28,7 @@ const Buy = ({ amount }) => {
     const handleCreateOrder = async (amount, currency) => {
         try {
             // Fetch order details from your backend
-            const response = await fetch(`https://your-backend-url.com/order`, {
+            const response = await fetch(`https://login-fstack-server.vercel.app/order`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
