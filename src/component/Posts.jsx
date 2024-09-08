@@ -4,6 +4,7 @@ import { Card } from 'shadcn-react'
 import InputForm from './InputForm'
 import Profile from './Profile'
 import Fav from './Fav'
+import Buy from './Buy'
 
 const Posts = () => {
     const [post, setPosts] = useState([])
@@ -53,7 +54,12 @@ const Posts = () => {
                             <p className="text-gray-600 mb-1">First Name: {user.firstName}</p>
                             <p className="text-gray-600 mb-1">Last Name: {user.lastName}</p>
                             <p className="text-gray-600 mb-4">Password: {user.password}</p>
+                            
+                            <p className="text-gray-600 mb-4">Amount: {user.currency} {user.amount}</p>
+                            <div className='flex flex-row gap-6'>
                             <Fav isFavorite={user.isFavorite} />
+                            <Buy/>
+                            </div>
                             <button
                                 onClick={() => handleDelete(user._id)}
                                 className='text-sm text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg'>

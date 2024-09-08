@@ -7,6 +7,9 @@ const InputForm = () => {
   const [password, setPassword] = useState('');
   const [image, setImage] = useState(null);
   const[isFavorite, setIsFavorite] = useState(false);
+  const[currency, setCurrency] = useState('');
+  const[amount, setAmount] = useState('');
+
 
   const handleSubmission = (e) => {
     e.preventDefault();
@@ -21,6 +24,8 @@ const InputForm = () => {
         formData.append('password', password);
         formData.append('image', image);
         formData.append('isFavorite', isFavorite);
+        formData.append('currency', currency);
+        formData.append('amount', amount);
 
         const submitData = await fetch('https://login-fstack-server.vercel.app/login', {
           method: 'POST',
@@ -76,6 +81,26 @@ const InputForm = () => {
             type="password"
             placeholder="Set User Password"
             onChange={(e) => setPassword(e.target.value)}
+            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+            required
+          />
+        </div>
+
+        <div className="mb-4">
+        <input
+            type="text"
+            placeholder="Set Currency"
+            onChange={(e) => setCurrency(e.target.value)}
+            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+            required
+          />
+        </div>
+
+        <div className="mb-4">
+        <input
+            type="number"
+            placeholder="Set Amount"
+            onChange={(e) => setAmount(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
             required
           />

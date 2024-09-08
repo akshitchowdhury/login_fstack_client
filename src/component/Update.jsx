@@ -11,6 +11,8 @@ const Update = () => {
         lastName: '',
         password: '',
         imageUrl: '',
+        currency: '',
+        amount: '',
         isFavorite: false  // initialize as false
     })
     const [image, setImage] = useState(null)
@@ -45,6 +47,8 @@ const Update = () => {
         formData.append('firstName', user.firstName)
         formData.append('lastName', user.lastName)
         formData.append('password', user.password)
+        formData.append('currency', user.currency)
+        formData.append('amount', user.amount)
         formData.append('isFavorite', user.isFavorite)
 
         if (image) {
@@ -115,6 +119,26 @@ const Update = () => {
                         onChange={handleInputChange}
                         className='w-full px-3 py-2 border border-gray-300 rounded-lg'
                     />
+                </div>
+                <div className='mb-4'>
+                    <label className='block text-gray-700 mb-2'>Currency</label>
+                    <input
+            type="text"
+            placeholder="Set Currency"
+            onChange={handleInputChange}
+            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+            required
+          />
+                </div>
+                <div className='mb-4'>
+                    <label className='block text-gray-700 mb-2'>Amount</label>
+                    <input
+            type="number"
+            placeholder="Set Amount"
+            onChange={handleInputChange}
+            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+            required
+          />
                 </div>
 
                 <div className='mb-4'>
