@@ -58,7 +58,7 @@ const Posts = () => {
                             <p className="text-gray-600 mb-4">Amount: {user.currency} {user.amount}</p>
                             <div className='flex flex-row gap-6'>
                             <Fav isFavorite={user.isFavorite} />
-                            <Buy/>
+                            <Buy amount= {user.amount}/>
                             </div>
                             <button
                                 onClick={() => handleDelete(user._id)}

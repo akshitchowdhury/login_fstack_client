@@ -124,20 +124,20 @@ const Update = () => {
                     <label className='block text-gray-700 mb-2'>Currency</label>
                     <input
             type="text"
-            placeholder="Set Currency"
+            name="currency"
             onChange={handleInputChange}
             className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-            required
+            
           />
                 </div>
                 <div className='mb-4'>
                     <label className='block text-gray-700 mb-2'>Amount</label>
                     <input
             type="number"
-            placeholder="Set Amount"
+            name="amount"
             onChange={handleInputChange}
             className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-            required
+            
           />
                 </div>
 
